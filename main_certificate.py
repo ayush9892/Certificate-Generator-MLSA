@@ -17,7 +17,6 @@ from fastapi.responses import FileResponse
 from certificate import (
     replace_participant_name,
     replace_event_name,
-    replace_ambassador_name,
 )
 
 app = FastAPI()
@@ -170,7 +169,6 @@ async def create_docx_files(filename, list_participate, event, ambassador):
 
         replace_participant_name(doc, name)
         replace_event_name(doc, event)
-        replace_ambassador_name(doc, ambassador)
 
         doc.save("./Output/Doc/{}.docx".format(name))
 
